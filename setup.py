@@ -2,15 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import os
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
-requirements = ()
-if os.name != 'posix':
-    requirements += ('colorama',)
+
+def get_requirements():
+    requirements = ()
+    if os.name != 'posix':
+        requirements += ('colorama',)
+    return requirements
+
 
 test_requirements = (
     'mock',
@@ -25,13 +29,10 @@ setup(
     author='Tzu-ping Chung',
     author_email='uranusjr@gmail.com',
     url='https://github.com/uranusjr/palpatine',
-    packages=[
-        'palpatine',
-    ],
-    package_dir={'palpatine':
-                 'palpatine'},
+    packages=find_packages(),
+    package_dir={'palpatine': 'palpatine'},
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=get_requirements(),
     license='BSD',
     zip_safe=False,
     keywords='palpatine',
