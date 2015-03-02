@@ -11,7 +11,7 @@ Palpatine
 
 Manipulate your console screen like an emperor.
 
-* Free software: BSD license
+* Free software: BSD license (3-clause).
 * Documentation: https://palpatine.readthedocs.org.
 
 Features
